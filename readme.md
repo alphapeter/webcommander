@@ -13,7 +13,7 @@ type `go build ` to create the binary. It is also possible to cross compile for 
 
 ##Running the application
 **From source**  
-type `go run *.go` or `go run *.go --settings path-to-settings/settings.json`
+type `go run *.go` or `go run *.go --settings path-to-settings/settings.json`  
 **Compiled binary**  
 By default the application will look for a `settings.json` in the execution path, to use settings file located in an other directory, supply the parameter `--settings path-to-settings/settings.json`, ex. `./webcommander --settings /etc/webcommanded/settings.json`
 
@@ -86,8 +86,7 @@ The authorization is optional, if the configuration property if left empty, no a
 Any string could be used as apiToken, ex. password or generated string.
 *Be aware that when using unencrypted http requests anyone could potentially read the token in plain text.*
  
-**Adding token to the GET request**  
-
+**Adding token to the GET request**   
 * Using url parameter  
     Append the token to the url using apiToken=<token>, ex. `http://localhost/restart-server?apiToken=9zk1HT7027716xk8z4PY08L5MiyZP6qi`
 * Using header field   
