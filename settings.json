@@ -1,0 +1,27 @@
+{
+  "port": 8080,
+  "apiToken":"",
+  "commands": [{
+    "path": "/restart-vpn",
+    "command": "/etc/init.d/vpn",
+    "arguments": ["restart"],
+    "description": "restart vpn"
+  },
+    {
+      "path": "/start-vpn",
+      "command": "/etc/init.d/vpn",
+      "arguments": ["start"],
+      "description": "start vpn"
+    },
+    {
+      "path": "/stop-vpn",
+      "command": "/etc/init.d/vpn",
+      "arguments": ["stop"],
+      "description": "stop vpn"
+    }],
+  "proxyRequests":[{
+    "path": "/ip",
+    "url": "https://api.ipify.org?format=json",
+    "description": "shows the server external ip"
+  }]
+}
