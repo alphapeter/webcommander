@@ -29,7 +29,6 @@ func main() {
 	for _, proxyRequest := range settings.ProxyRequests {
 		proxyRequestHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			makeRequest(w, proxyRequest.Url)
-			fmt.Println(proxyRequest)
 		})
 		http.Handle(proxyRequest.Path, authorization(proxyRequestHandler))
 	}
