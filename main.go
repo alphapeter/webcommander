@@ -20,15 +20,18 @@ func main() {
 	})
 
 	for _, command := range settings.Commands {
+		c := command.Command
+		a := command.Arguments
 		commandRequestHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			executeCommand(w, command.Command, command.Arguments)
+			executeCommand(w, c, a)
 		})
 		http.Handle(command.Path, authorization(commandRequestHandler))
 	}
 
 	for _, proxyRequest := range settings.ProxyRequests {
+		u := proxyRequest.Url
 		proxyRequestHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			makeRequest(w, proxyRequest.Url)
+			makeRequest(w, u)
 		})
 		http.Handle(proxyRequest.Path, authorization(proxyRequestHandler))
 	}
