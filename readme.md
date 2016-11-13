@@ -12,16 +12,16 @@ To build the application you will need to install the [go framework](https://gol
 type `go build ` to create the binary. It is also possible to cross compile for other platforms, see the go language documentation for details.
 
 ##Running the application
-**From source**
+**From source**  
 type `go run *.go` or `go run *.go --settings path-to-settings/settings.json`
-**Compiled binary**
+**Compiled binary**  
 By default the application will look for a `settings.json` in the execution path, to use settings file located in an other directory, supply the parameter `--settings path-to-settings/settings.json`, ex. `./webcommander --settings /etc/webcommanded/settings.json`
 
 ##Configuration
-The configuration is done using a JSON file to define port, an optional api token, commands and http poxy requests.
+The configuration is done using a JSON file to define address, an optional api token, commands and http poxy requests.
 By default the application will look for a `settings.json` in the execution path 
 
-* port: ex. `8080`
+* address: ex. `":8080"` or `"192.168.1.1:8080"`
 * apiToken: ex. `"9zk1HT7027716xk8z4PY08L5MiyZP6qi"`
 * commands: ex. a json list of commands ex `[command]` where commands is composed of path, command, arguments and description
     * command: ex. `"ls"` - the command to be executed
@@ -37,7 +37,7 @@ By default the application will look for a `settings.json` in the execution path
 *settings.json*
 ```json
 {
-  "port": 8080,
+  "address": ":8080",
   "apiToken":"",
   "commands": [{
     "path": "/restart-vpn",
@@ -68,28 +68,28 @@ By default the application will look for a `settings.json` in the execution path
 
 ##Making requests
 
-**List available commands**
+**List available commands**    
 Make a http GET request to the root path ex. `http://localhost:8080`
 
-**Execute a command**
+**Execute a command**   
 Make an http GET request to the corresponding path ex. `http://localhost:8080/restart-server` where `/restart-server` is the path
 
-**Authorization token**
+**Authorization token**   
 The token can be added to the request using either URL parameter or header field, read the Authorzation section below.
 
 ##Authorization
  
-**No authorization**
+**No authorization**  
 The authorization is optional, if the configuration property if left empty, no apiToken is required.
 
-**Required authorization** 
+**Required authorization**  
 Any string could be used as apiToken, ex. password or generated string.
 *Be aware that when using unencrypted http requests anyone could potentially read the token in plain text.*
  
-**Adding token to the GET request**
+**Adding token to the GET request**  
 
-* Using url parameter 
+* Using url parameter  
     Append the token to the url using apiToken=<token>, ex. `http://localhost/restart-server?apiToken=9zk1HT7027716xk8z4PY08L5MiyZP6qi`
-* Using header field 
+* Using header field   
     Add the header field `apiToken` with the token as a value
 

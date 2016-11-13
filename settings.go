@@ -21,7 +21,7 @@ type ProxyRequest struct {
 }
 
 type Settings struct {
-	Port          int            `json:"port"`
+	Address       string         `json:"address"`
 	ApiToken      string         `json:apiToken`
 	Commands      []Command      `json:commands`
 	ProxyRequests []ProxyRequest `json:proxyRequests`

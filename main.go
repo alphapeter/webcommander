@@ -36,12 +36,12 @@ func main() {
 		http.Handle(proxyRequest.Path, authorization(proxyRequestHandler))
 	}
 
-	if settings.Port == 0 {
-		fmt.Printf("invalid port %v \n", settings.Port)
+	if settings.Address == "" {
+		fmt.Println("invalid address")
 		os.Exit(2)
 	}
-	fmt.Printf("starting server at port %v\n", settings.Port)
-	err := http.ListenAndServe(fmt.Sprintf(":%v", settings.Port), nil)
+	fmt.Printf("starting server at address %s\n", settings.Address)
+	err := http.ListenAndServe(settings.Address, nil)
 	if err != nil {
 		fmt.Println(err.Error())
 	}

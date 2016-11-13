@@ -1,21 +1,21 @@
 {
-  "port": 8080,
+  "address": ":8080",
   "apiToken":"",
   "commands": [{
     "path": "/restart-vpn",
-    "command": "/etc/init.d/vpn",
+    "command": "/etc/init.d/vpn2",
     "arguments": ["restart"],
     "description": "restart vpn"
   },
     {
       "path": "/start-vpn",
-      "command": "/etc/init.d/vpn",
+      "command": "/etc/init.d/vpn3",
       "arguments": ["start"],
       "description": "start vpn"
     },
     {
       "path": "/stop-vpn",
-      "command": "/etc/init.d/vpn",
+      "command": "/etc/init.d/vpn4",
       "arguments": ["stop"],
       "description": "stop vpn"
     }],
