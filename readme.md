@@ -66,7 +66,7 @@ By default the application will look for a `settings.json` in the execution path
 
 ```
 
-##Making requests
+## Making requests
 
 **List available commands**    
 Make a http GET request to the root path ex. `http://localhost:8080`
@@ -77,7 +77,7 @@ Make an http GET request to the corresponding path ex. `http://localhost:8080/re
 **Authorization token**   
 The token can be added to the request using either URL parameter or header field, read the Authorzation section below.
 
-##Authorization
+## Authorization
  
 **No authorization**  
 The authorization is optional, if the configuration property if left empty, no apiToken is required.
