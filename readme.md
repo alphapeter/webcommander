@@ -1,23 +1,23 @@
-#Webcommander
-##Summary
+# Webcommander
+## Summary
 Simple web application written in go that allows you to exeute commands, scripts and make http requests using an http rest API.
 The result of the executed command, script or http request will be returned as a result to the GET requests.
 
 *The server does currently not implement https. If it would be used publicly, it should be placed behind an SSL termination proxy*
 
-##Dependencies
+## Dependencies
 To build the application you will need to install the [go framework](https://golang.org/)
  
-##Building the application
+## Building the application
 type `go build ` to create the binary. It is also possible to cross compile for other platforms, see the go language documentation for details.
 
-##Running the application
+## Running the application
 **From source**  
 type `go run *.go` or `go run *.go --settings path-to-settings/settings.json`  
 **Compiled binary**  
 By default the application will look for a `settings.json` in the execution path, to use settings file located in an other directory, supply the parameter `--settings path-to-settings/settings.json`, ex. `./webcommander --settings /etc/webcommanded/settings.json`
 
-##Configuration
+## Configuration
 The configuration is done using a JSON file to define address, an optional api token, commands and http poxy requests.
 By default the application will look for a `settings.json` in the execution path 
 
